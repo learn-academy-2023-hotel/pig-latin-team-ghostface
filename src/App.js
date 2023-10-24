@@ -42,7 +42,12 @@ const App = () => {
         return eachWord.slice(2) + eachWord.slice(0,2) + "ay"
           // return moveQU.join("")
         }
+      else if (eachWord.includes("y") && eachWord.length === 0){
+        const onlyY = eachWord.indexOf("y")
+        return eachWord.charAt(onlyY) + eachWord.slice(0, onlyY) + eachWord.slice(onlyY+1) + "ay"
+        }
 // queenquay eenquay
+
         
       // }
       return eachWord
