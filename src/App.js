@@ -42,7 +42,14 @@ const App = () => {
         return eachWord.slice(2) + eachWord.slice(0,2) + "ay"
           // return moveQU.join("")
         }
+
+        else if (eachWord.includes("y") && vowelsArray.length === 0){
+          const onlyY = eachWord.indexOf("y")
+          return eachWord.charAt(onlyY) + eachWord.slice(0, onlyY) + eachWord.slice(onlyY) + "ay"
+        }
 // queenquay eenquay
+
+
         
       // }
       return eachWord
