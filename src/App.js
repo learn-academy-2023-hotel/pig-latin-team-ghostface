@@ -43,16 +43,14 @@ const App = () => {
           // return moveQU.join("")
         }
 
-        else if (eachWord.includes("y") && vowelsArray.length === 0){
-          const onlyY = eachWord.indexOf("y")
-          return eachWord.charAt(onlyY) + eachWord.slice(0, onlyY) + eachWord.slice(onlyY) + "ay"
+      else if (eachWord.includes("y") && vowelsArray.length === 0){
+        const onlyY = eachWord.indexOf("y")
+        return eachWord.charAt(onlyY) + eachWord.slice(0, onlyY) + eachWord.slice(onlyY+1) + "ay"
         }
-// queenquay eenquay
-
-
+     
         
       // }
-      return eachWord
+    return eachWord
       
       // ACTION ITEM: this return will be the output of your Pig Latin'd code
     })
