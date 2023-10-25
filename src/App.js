@@ -5,7 +5,7 @@ import butcherPigImage from "./assets/butcherPig.jpeg"
 const App = () => {
   // ACTION ITEM: to make the development process easier there are some preassigned words in the input field, when you are ready for your full user experience delete the test words passed to useState and pass an empty string
   const [userInput, setUserInput] = useState(
-    "apple through queen squeal fry fluent"
+    ""
   )
   const [inputTranslated, setInputTranslated] = useState("")
 
@@ -34,24 +34,29 @@ const App = () => {
       // ACTION ITEM: your Pig Latin logic goes here!
       
       if (eachWord[0] === vowelsArray[0]) {
+        // conditional: 0th index of eachWord = 0th index of vowelsArray
         return eachWord + "way"
-
         }
       else if (eachWord.slice(0,2) == "qu"){
-          // const moveQU = eachWord.slice(0,1)
+          // conditional: substring of first and second letter = "qu" 
         return eachWord.slice(2) + eachWord.slice(0,2) + "ay"
-          // return moveQU.join("")
+          // return substring starting at 2nd index through end of word + substring "qu" + "ay"
         }
 
-      else if (eachWord.includes("y") && vowelsArray.length === 0){
+      else if (eachWord.includes("y") && vowelsArray.length == 0){
+        // conditional: word has a Y AND no vowels
         const onlyY = eachWord.indexOf("y")
-        return eachWord.charAt(onlyY) + eachWord.slice(0, onlyY) + eachWord.slice(onlyY+1) + "ay"
+        // variable for index of the letter Y
+        return eachWord.charAt(onlyY) + eachWord.slice(onlyY+1) + eachWord.slice(0, onlyY) + "ay"
         }
-     
-        
-      // }
-    return eachWord
-      
+        // return letter Y + substring starting at one index after Y + substring of beginning of word ending before the Y + "ay"
+        else {
+        // no conditional for remaining words needed
+        const firstVowel = eachWord.indexOf(vowelsArray[0])
+        // variable for first vowel in word
+        return eachWord.slice(firstVowel) + eachWord.slice(0, firstVowel) + "ay"
+        // return substring beginning with first vowel ending at end of word + substring of beginning of word ending before first vowel + "ay"  
+      }
       // ACTION ITEM: this return will be the output of your Pig Latin'd code
     })
 
@@ -65,7 +70,7 @@ const App = () => {
 
   // ACTION ITEM: this method restarts the game by setting the original state, when you are ready for your full user experience delete the test words in setUserInput and pass an empty string
   const restartGame = () => {
-    setUserInput("apple through queen squeal fry fluent")
+    setUserInput("")
     setInputTranslated("")
   }
 
@@ -104,7 +109,7 @@ const App = () => {
         </div>
         <p>{inputTranslated}</p>
       </div>
-      <footer>&copy; 2023 | Coded by: Your Names Here!</footer>
+      <footer>&copy; 2023 | Coded by: Emery and Ant</footer>
     </div>
   )
 }
